@@ -2,180 +2,219 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Landing de prueba | Tu Marca</title>
+  <title>GoodChicken - Pollo frito en Santa Cruz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="GoodChicken - Pollo frito crujiente, combos familiares y delivery en Santa Cruz de la Sierra."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
   <style>
     :root {
-      --bg: #020617;
+      --bg: #050816;
       --bg-soft: #0b1220;
-      --accent: #22c55e;
-      --accent-soft: rgba(34, 197, 94, 0.1);
-      --text: #e5e7eb;
+      --accent: #fbbf24;
+      --accent-strong: #f59e0b;
+      --accent-dark: #92400e;
+      --text: #f9fafb;
       --muted: #9ca3af;
-      --border: #1f2937;
-      --radius-xl: 22px;
-      --radius-lg: 16px;
+      --card: #020617;
+      --border: #1e293b;
+      --radius-lg: 18px;
+      --radius-xl: 28px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.7);
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
     }
 
     body {
-      min-height: 100vh;
-      background:
-        radial-gradient(circle at top, #1e293b, #020617);
+      background: radial-gradient(circle at top, #111827, #020617);
       color: var(--text);
-      display: flex;
-      justify-content: center;
+      min-height: 100vh;
     }
 
-    .page {
-      width: 100%;
-      max-width: 1100px;
-      padding: 20px 16px 40px;
+    img {
+      max-width: 100%;
+      display: block;
     }
 
-    /* Header */
-    .header {
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Layout general */
+
+    .wrapper {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 16px 40px;
+    }
+
+    /* NAVBAR */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.95),
+        rgba(15, 23, 42, 0.7),
+        transparent
+      );
+      border-bottom: 1px solid rgba(30, 64, 175, 0.4);
+    }
+
+    .nav {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 10px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      backdrop-filter: blur(18px);
-      margin-bottom: 26px;
     }
 
-    .brand {
+    .nav-left {
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .brand-logo {
-      width: 32px;
-      height: 32px;
-      border-radius: 12px;
-      background: radial-gradient(circle at 30% 20%, #4ade80, #16a34a);
+    .logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #facc15, #ea580c);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
-      font-size: 16px;
-      color: #022c22;
-      box-shadow: 0 0 20px rgba(34, 197, 94, 0.6);
+      font-weight: 800;
+      font-size: 18px;
+      color: #1f2937;
+      box-shadow: 0 0 22px rgba(251, 191, 36, 0.9);
     }
 
-    .brand-text-main {
+    .brand-title {
       font-weight: 600;
-      font-size: 15px;
+      font-size: 17px;
+      letter-spacing: 0.03em;
     }
 
-    .brand-text-sub {
-      font-size: 12px;
+    .brand-sub {
+      font-size: 11px;
       color: var(--muted);
+      margin-top: -4px;
     }
 
-    .nav {
+    .nav-links {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-size: 12px;
+      gap: 18px;
+      font-size: 13px;
+    }
+
+    .nav-links a {
       color: var(--muted);
+      position: relative;
+      padding-bottom: 2px;
     }
 
-    .nav span {
-      padding: 6px 10px;
+    .nav-links a:hover::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 100%;
+      background: linear-gradient(to right, #facc15, #fb923c);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #facc15, #fb923c);
+      color: #1f2937;
+      padding: 7px 14px;
       border-radius: 999px;
-      border: 1px solid transparent;
-      cursor: default;
-    }
-
-    .nav span.active {
-      border-color: rgba(148, 163, 184, 0.6);
-      color: var(--text);
-      background: rgba(15, 23, 42, 0.9);
-    }
-
-    .nav-pill {
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: #bbf7d0;
       font-size: 12px;
-      border: 1px dashed rgba(34, 197, 94, 0.4);
+      font-weight: 600;
+      box-shadow: 0 10px 22px rgba(251, 146, 60, 0.55);
     }
 
-    /* Layout principal */
-    .grid {
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
-      gap: 22px;
+    .nav-cta span {
+      font-size: 14px;
     }
 
-    @media (max-width: 800px) {
-      .header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .grid {
-        grid-template-columns: 1fr;
+    @media (max-width: 780px) {
+      .nav-links {
+        display: none;
       }
     }
 
-    /* Hero */
+    /* HERO */
+
     .hero {
-      background: rgba(15, 23, 42, 0.96);
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(55, 65, 81, 0.8);
-      padding: 22px 22px 20px;
-      box-shadow:
-        0 22px 45px rgba(0, 0, 0, 0.8),
-        0 0 0 1px rgba(15, 23, 42, 0.8);
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 28px;
+      padding-top: 22px;
+      align-items: center;
     }
 
-    .hero-badge {
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 26px;
+      }
+    }
+
+    .badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 5px 10px 5px 5px;
+      padding: 5px 10px 5px 6px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 1);
-      border: 1px solid rgba(75, 85, 99, 0.9);
-      margin-bottom: 14px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      margin-bottom: 12px;
       font-size: 11px;
       color: var(--muted);
     }
 
-    .hero-badge-dot {
+    .badge-dot {
       width: 9px;
       height: 9px;
       border-radius: 999px;
       background: #22c55e;
-      box-shadow: 0 0 14px #22c55e;
+      box-shadow: 0 0 15px #22c55e;
     }
 
-    .hero-badge-text-strong {
+    .badge strong {
       color: var(--text);
-      font-weight: 600;
     }
 
     .hero-title {
-      font-size: 28px;
-      line-height: 1.1;
+      font-size: clamp(27px, 3.6vw, 34px);
+      line-height: 1.12;
       margin-bottom: 10px;
     }
 
     .hero-title span {
-      background: linear-gradient(120deg, #4ade80, #22c55e, #a3e635);
+      background: linear-gradient(120deg, #facc15, #fb923c, #f97316);
       -webkit-background-clip: text;
       color: transparent;
     }
@@ -183,15 +222,15 @@
     .hero-subtitle {
       font-size: 14px;
       color: var(--muted);
-      margin-bottom: 18px;
-      max-width: 450px;
+      max-width: 480px;
+      margin-bottom: 20px;
     }
 
-    .hero-cta {
+    .hero-cta-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 20px;
+      gap: 12px;
+      margin-bottom: 18px;
     }
 
     .btn-primary,
@@ -206,19 +245,19 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #22c55e, #4ade80);
-      color: #052e16;
+      background: linear-gradient(135deg, #facc15, #fb923c);
+      color: #1f2937;
       font-weight: 600;
       box-shadow:
-        0 12px 25px rgba(34, 197, 94, 0.45),
-        0 0 0 1px rgba(5, 46, 22, 0.4);
+        0 16px 35px rgba(248, 250, 252, 0.1),
+        0 10px 30px rgba(251, 146, 60, 0.6);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
       box-shadow:
-        0 16px 30px rgba(34, 197, 94, 0.55),
-        0 0 0 1px rgba(5, 46, 22, 0.6);
+        0 18px 40px rgba(15, 23, 42, 0.8),
+        0 12px 32px rgba(251, 146, 60, 0.8);
     }
 
     .btn-ghost {
@@ -228,8 +267,8 @@
     }
 
     .btn-ghost:hover {
-      background: rgba(15, 23, 42, 0.8);
       transform: translateY(-1px);
+      background: rgba(15, 23, 42, 0.9);
     }
 
     .hero-note {
@@ -238,436 +277,899 @@
     }
 
     .hero-note strong {
-      color: #e5e7eb;
+      color: var(--text);
     }
 
-    /* Cards / info */
-    .hero-cards {
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top, #111827, #020617);
+      border-radius: var(--radius-xl);
+      padding: 16px 16px 14px;
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(15, 23, 42, 0.96);
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .hero-food {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 10px;
+      align-items: flex-start;
+    }
+
+    .hero-food-img {
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+      border-radius: 22px;
+      background-image: url("https://images.pexels.com/photos/4109236/pexels-photo-4109236.jpeg?auto=compress&cs=tinysrgb&w=800");
+      background-size: cover;
+      background-position: center;
+      border: 2px solid rgba(248, 250, 252, 0.15);
+    }
+
+    .hero-food-info-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .hero-food-info-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .hero-food-labels {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .label-pill {
+      padding: 2px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--muted);
+    }
+
+    .label-pill.hot {
+      border-color: rgba(248, 113, 113, 0.9);
+      color: #fecaca;
+    }
+
+    .hero-combos {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 10px;
-      margin-top: 18px;
+      font-size: 11px;
+      margin-top: 10px;
+    }
+
+    .hero-combo-card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 14px;
+      padding: 8px 9px;
+      border: 1px solid rgba(31, 41, 55, 0.95);
+    }
+
+    .hero-combo-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2px;
+      font-weight: 500;
+      font-size: 12px;
+    }
+
+    .hero-combo-price {
+      color: #facc15;
+    }
+
+    .hero-combo-desc {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .hero-delivery {
+      margin-top: 10px;
+      border-top: 1px dashed rgba(55, 65, 81, 0.9);
+      padding-top: 7px;
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      color: var(--muted);
+    }
+
+    .hero-delivery strong {
+      color: var(--text);
+    }
+
+    /* SECCIONES GENÉRICAS */
+
+    section {
+      margin-top: 45px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 18px;
+      max-width: 620px;
+    }
+
+    /* HISTORIA */
+
+    .history {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 22px;
     }
 
     @media (max-width: 900px) {
-      .hero-cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 600px) {
-      .hero-cards {
+      .history {
         grid-template-columns: 1fr;
       }
     }
 
-    .card-small {
-      border-radius: var(--radius-lg);
-      background: radial-gradient(circle at top left, #0f172a, #020617);
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      padding: 10px 11px;
-      font-size: 11px;
+    .history-text {
+      font-size: 14px;
       color: var(--muted);
+      line-height: 1.6;
     }
 
-    .card-small-title {
-      font-size: 12px;
+    .history-highlight {
+      padding: 14px 14px;
+      border-radius: var(--radius-lg);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(55, 65, 81, 0.95);
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    .history-highlight strong {
       color: var(--text);
-      font-weight: 500;
-      margin-bottom: 3px;
     }
 
-    .pill-soft {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2px 7px;
-      border-radius: 999px;
-      font-size: 10px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      margin-top: 4px;
+    .history-card {
+      background: radial-gradient(circle at top, #111827, #020617);
+      border-radius: var(--radius-lg);
+      padding: 14px 14px 12px;
+      border: 1px solid rgba(30, 64, 175, 0.8);
+      box-shadow: var(--shadow-soft);
+      font-size: 12px;
     }
 
-    .pill-soft.green {
-      border-color: rgba(34, 197, 94, 0.5);
-      color: #bbf7d0;
-      background: rgba(22, 163, 74, 0.15);
+    .history-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 10px;
     }
 
-    .stat-main {
-      font-size: 17px;
-      font-weight: 600;
-      color: #e5e7eb;
+    .history-stat {
+      padding: 8px 9px;
+      border-radius: 14px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .history-stat strong {
+      display: block;
+      font-size: 15px;
       margin-bottom: 2px;
     }
 
-    .stat-extra {
-      font-size: 10px;
-      color: var(--muted);
-    }
+    /* MENÚ */
 
-    /* Panel lateral */
-    .side {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .side-main {
-      background: rgba(15, 23, 42, 0.96);
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      padding: 16px 16px 14px;
-    }
-
-    .side-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .side-title {
-      font-size: 13px;
-      font-weight: 500;
-    }
-
-    .side-tag {
-      font-size: 11px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      color: var(--muted);
-    }
-
-    .side-list {
-      font-size: 12px;
-      color: var(--muted);
+    .menu-grid {
       display: grid;
-      gap: 8px;
-      margin-bottom: 10px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
     }
 
-    .side-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-    }
-
-    .side-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      margin-top: 5px;
-      background: rgba(148, 163, 184, 0.8);
-    }
-
-    .side-item strong {
-      color: #e5e7eb;
-      font-weight: 500;
-    }
-
-    .side-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11px;
-      color: var(--muted);
-      border-top: 1px solid rgba(31, 41, 55, 0.9);
-      padding-top: 8px;
-      margin-top: 6px;
-    }
-
-    .side-highlight {
-      font-size: 11px;
-      padding: 3px 7px;
-      border-radius: 999px;
-      background: rgba(34, 197, 94, 0.09);
-      color: #bbf7d0;
-      border: 1px solid rgba(22, 163, 74, 0.6);
-    }
-
-    .side-secondary {
-      background: radial-gradient(circle at top, #111827, #020617);
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      padding: 12px 14px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .side-secondary strong {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .testimony {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 8px;
-    }
-
-    .avatar {
-      width: 28px;
-      height: 28px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #22c55e, #16a34a);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      color: #052e16;
-      font-weight: 700;
-    }
-
-    .testimony-info {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .testimony-name {
-      font-size: 11px;
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .testimony-role {
-      font-size: 10px;
-      color: var(--muted);
-    }
-
-    /* Footer */
-    .footer {
-      margin-top: 22px;
-      font-size: 11px;
-      color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      border-top: 1px solid rgba(31, 41, 55, 0.9);
-      padding-top: 10px;
-    }
-
-    @media (max-width: 600px) {
-      .footer {
-        flex-direction: column;
-        align-items: flex-start;
+    @media (max-width: 960px) {
+      .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
-    .footer a {
-      color: #a5b4fc;
-      text-decoration: none;
-      border-bottom: 1px dashed rgba(129, 140, 248, 0.5);
+    @media (max-width: 640px) {
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
-    .footer a:hover {
+    .menu-card {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      padding: 12px 12px 10px;
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .menu-card h3 {
+      font-size: 15px;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .menu-item-name {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .menu-item-price {
+      color: #facc15;
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    .menu-note {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* SUCURSALES */
+
+    .branch-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    @media (max-width: 960px) {
+      .branch-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .branch-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .branch-card {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      padding: 12px 12px 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .branch-card h3 {
+      font-size: 14px;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .badge-mini {
+      display: inline-block;
+      padding: 2px 7px;
+      font-size: 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      margin-bottom: 5px;
+      color: var(--muted);
+    }
+
+    .branch-hours {
+      font-size: 11px;
+      margin-top: 6px;
+    }
+
+    .branch-delivery {
+      margin-top: 6px;
+      font-size: 11px;
+    }
+
+    .branch-delivery span {
+      display: inline-block;
+      margin-right: 6px;
+      padding: 2px 6px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+    }
+
+    /* CONTACTO */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 22px;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact-card {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      padding: 14px 14px 12px;
+      font-size: 13px;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .contact-item {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .contact-item strong {
+      color: var(--text);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 8px;
+      margin-top: 8px;
+      font-size: 12px;
+    }
+
+    label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 8px 9px;
+      border-radius: 9px;
+      border: 1px solid rgba(55, 65, 81, 0.85);
+      background: rgba(15, 23, 42, 0.96);
+      color: var(--text);
+      font-size: 12px;
+    }
+
+    textarea {
+      min-height: 70px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: rgba(251, 146, 60, 0.9);
+      box-shadow: 0 0 0 1px rgba(251, 146, 60, 0.7);
+    }
+
+    .contact-note {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+      font-size: 12px;
+    }
+
+    .social-pill {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+    }
+
+    /* FOOTER */
+
+    footer {
+      margin-top: 40px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: #a5b4fc;
+      border-bottom: 1px dashed rgba(129, 140, 248, 0.7);
+    }
+
+    footer a:hover {
       border-bottom-style: solid;
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <!-- HEADER -->
-    <header class="header">
-      <div class="brand">
-        <div class="brand-logo">T</div>
+  <!-- NAVBAR -->
+  <header>
+    <nav class="nav">
+      <div class="nav-left">
+        <div class="logo">GC</div>
         <div>
-          <div class="brand-text-main">Tu Marca</div>
-          <div class="brand-text-sub">Demo en ambiente de pruebas</div>
+          <div class="brand-title">GoodChicken</div>
+          <div class="brand-sub">Pollo frito y algo más</div>
         </div>
       </div>
-
-      <div class="nav">
-        <span class="active">Resumen</span>
-        <span>Características</span>
-        <span>Casos de uso</span>
-        <span class="nav-pill">⭐ Versión demo lista para mostrar</span>
+      <div class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#menu">Menú</a>
+        <a href="#historia">Nuestra historia</a>
+        <a href="#sucursales">Sucursales</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#pedido" class="nav-cta">
+          <span>📱</span> Pedir ahora
+        </a>
       </div>
-    </header>
+    </nav>
+  </header>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="grid">
-      <!-- COLUMNA IZQUIERDA -->
-      <section class="hero">
-        <div class="hero-badge">
-          <span class="hero-badge-dot"></span>
-          <span class="hero-badge-text-strong">Proyecto en línea</span>
-          <span>Perfecto para enseñar a clientes o profes</span>
+  <main class="wrapper">
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <div>
+        <div class="badge">
+          <span class="badge-dot"></span>
+          <span><strong>Santa Cruz</strong> · Sabor local · Delivery</span>
         </div>
 
         <h1 class="hero-title">
-          Un lugar elegante para <span>mostrar tu sistema</span>.
+          Pollo frito crujiente, combos llenadores <span>y sabor de barrio</span>.
         </h1>
 
         <p class="hero-subtitle">
-          Esta es una página mockup pensada para demos: puedes cambiar el logo,
-          los textos y los colores para adaptarla a tu ERP, CRM, restaurante,
-          tienda online o cualquier proyecto que estés construyendo.
+          En GoodChicken hacemos pollo frito al momento, con recetas pensadas para
+          compartir: combos familiares, acompañamientos caseros y promos para
+          delivery durante toda la semana.
         </p>
 
-        <div class="hero-cta">
-          <button class="btn-primary" onclick="scrollToDemo()">
-            Ver ejemplo rápido
+        <div class="hero-cta-row">
+          <button class="btn-primary" onclick="scrollToSection('menu')">
+            Ver menú completo
           </button>
-          <button class="btn-ghost" onclick="alertInfo()">
-            Ver datos técnicos
+          <button class="btn-ghost" onclick="scrollToSection('historia')">
+            Conocer nuestra historia
           </button>
         </div>
 
         <p class="hero-note">
-          <strong>Tip:</strong> cambia solo textos e íconos y ya tienes una
-          landing profesional para enseñar tu proyecto sin programar nada más.
+          <strong>Tip:</strong> también puedes hacer tu pedido por WhatsApp,
+          PedidosYa o las apps de delivery con las que trabajamos.
         </p>
+      </div>
 
-        <div class="hero-cards" id="demo">
-          <div class="card-small">
-            <div class="card-small-title">Estado del sistema</div>
-            <div class="stat-main" id="status-text">Conectado</div>
-            <div class="stat-extra">
-              Dominio actual:
-              <span id="host-text">localhost</span>
-            </div>
-            <div class="pill-soft green" style="margin-top:6px;">
-              Tiempo real · Node.js + Express
+      <div class="hero-right">
+        <div class="hero-card">
+          <div class="hero-tag">Ejemplo de combo estrella</div>
+
+          <div class="hero-food">
+            <div class="hero-food-img"></div>
+            <div>
+              <div class="hero-food-info-title">Combo GoodChicken Familiar</div>
+              <div class="hero-food-info-sub">
+                10 piezas de pollo frito + papas + salsa + gaseosa 2L.
+              </div>
+              <div class="hero-food-labels">
+                <span class="label-pill hot">🔥 Más pedido</span>
+                <span class="label-pill">Para 3 a 4 personas</span>
+                <span class="label-pill">Ideal para ver el partido</span>
+              </div>
             </div>
           </div>
 
-          <div class="card-small">
-            <div class="card-small-title">Rendimiento</div>
-            <div class="stat-main">98/100</div>
-            <div class="stat-extra">
-              Mockup de rendimiento ideal para presentaciones.
+          <div class="hero-combos">
+            <div class="hero-combo-card">
+              <div class="hero-combo-header">
+                <span>Combo individual</span>
+                <span class="hero-combo-price">Bs 25</span>
+              </div>
+              <div class="hero-combo-desc">
+                3 piezas + papas + gaseosa 500 ml.
+              </div>
             </div>
-            <div class="pill-soft" style="margin-top:6px;">
-              Sin datos sensibles · Demo segura
+            <div class="hero-combo-card">
+              <div class="hero-combo-header">
+                <span>Combo familiar</span>
+                <span class="hero-combo-price">Bs 65</span>
+              </div>
+              <div class="hero-combo-desc">
+                8 piezas + papas familiares + 2 salsas.
+              </div>
             </div>
           </div>
 
-          <div class="card-small">
-            <div class="card-small-title">Próximos pasos</div>
-            <div class="stat-extra" style="margin-bottom:4px;">
-              ➤ Conectar tu backend real<br />
-              ➤ Añadir login de usuarios<br />
-              ➤ Integrar gráficos y reportes
-            </div>
-            <div class="pill-soft">
-              Todo listo para crecer 🚀
-            </div>
+          <div class="hero-delivery">
+            <span>
+              <strong>Hoy:</strong> promo en combos familiares  
+              después de las 18:00.
+            </span>
+            <span>⏰ Abierto todos los días</span>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- COLUMNA DERECHA -->
-      <aside class="side">
-        <section class="side-main">
-          <div class="side-header">
-            <div class="side-title">Ficha rápida del proyecto</div>
-            <div class="side-tag">Versión demo · Front listo</div>
-          </div>
+    <!-- HISTORIA -->
+    <section id="historia">
+      <h2 class="section-title">Nuestra historia</h2>
+      <p class="section-subtitle">
+        GoodChicken nace con una idea sencilla: hacer pollo frito crujiente,
+        sabroso y consistente, pero con servicio rápido y cercano, pensado para
+        el ritmo de Santa Cruz.
+      </p>
 
-          <div class="side-list">
-            <div class="side-item">
-              <div class="side-dot"></div>
-              <div>
-                <strong>Tecnologías:</strong><br />
-                HTML, CSS puro, JavaScript ligero y servidor Node.js / Express.
-              </div>
-            </div>
-            <div class="side-item">
-              <div class="side-dot"></div>
-              <div>
-                <strong>Uso típico:</strong><br />
-                Mostrar prototipos de ERP, CRM, dashboards, e-commerce o apps
-                internas a clientes, socios o tribunal de proyecto de grado.
-              </div>
-            </div>
-            <div class="side-item">
-              <div class="side-dot"></div>
-              <div>
-                <strong>Personalización:</strong><br />
-                Cambia logo, textos, colores y secciones en minutos sin tocar
-                lógica del backend.
-              </div>
-            </div>
-          </div>
-
-          <div class="side-footer">
-            <span>Servidor actual: <span id="server-host">localhost</span></span>
-            <span class="side-highlight" id="env-label">
-              Ambiente local de pruebas
-            </span>
-          </div>
-        </section>
-
-        <section class="side-secondary">
-          <p>
-            <strong>"Esta landing fue creada solo para pruebas."</strong>
-            Úsala como carta de presentación mientras terminas de construir
-            la lógica real del sistema.
+      <div class="history">
+        <div>
+          <p class="history-text">
+            Empezamos como un pequeño punto de venta con una freidora, un par de
+            mesas y muchas ganas de hacer las cosas bien. Con el tiempo fuimos
+            ajustando la receta, los tiempos de cocina y el tamaño de los
+            combos hasta lograr ese equilibrio perfecto entre sabor, porción y
+            precio justo.
+          </p>
+          <p class="history-text" style="margin-top: 8px;">
+            Hoy GoodChicken crece con nuevas sucursales, presencia en apps de
+            delivery y un equipo que comparte la misma visión: servir un pollo
+            frito que realmente quieras volver a pedir.
           </p>
 
-          <div class="testimony">
-            <div class="avatar">GM</div>
-            <div class="testimony-info">
-              <div class="testimony-name">Tu Nombre</div>
-              <div class="testimony-role">
-                Fundador · Emprendedor tecnológico
-              </div>
+          <div class="history-highlight">
+            <strong>Lo que no negociamos:</strong> aceite renovado, pollo
+            siempre fresco, cocción controlada y un estándar de servicio que
+            buscamos repetir en cada sucursal. Si algo no está al nivel, no
+            sale.
+          </div>
+        </div>
+
+        <aside class="history-card">
+          <div>Datos rápidos de GoodChicken</div>
+          <div class="history-grid">
+            <div class="history-stat">
+              <strong>+4</strong>
+              <span>Sucursales en Santa Cruz*</span>
+            </div>
+            <div class="history-stat">
+              <strong>2019</strong>
+              <span>Año de inicio</span>
+            </div>
+            <div class="history-stat">
+              <strong>Delivery</strong>
+              <span>Alianzas con apps y propio</span>
+            </div>
+            <div class="history-stat">
+              <strong>Receta propia</strong>
+              <span>Mejorada con feedback real</span>
             </div>
           </div>
-        </section>
-      </aside>
-    </main>
+          <p style="margin-top: 8px; font-size: 11px; color: var(--muted);">
+            *Puedes ajustar estos datos, años y número de sucursales según la
+            realidad actual del negocio.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- MENÚ -->
+    <section id="menu">
+      <h2 class="section-title">Nuestro menú</h2>
+      <p class="section-subtitle">
+        Aquí tienes una propuesta de estructura de menú. Puedes cambiar nombres,
+        precios y cantidades según tu carta real, pero la idea es que el
+        visitante entienda rápido qué puede pedir.
+      </p>
+
+      <div class="menu-grid">
+        <!-- Combos de pollo -->
+        <article class="menu-card">
+          <h3>Combos de pollo frito</h3>
+          <p class="menu-note">
+            Todos los combos incluyen papas fritas y salsa de la casa.
+          </p>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Combo Individual</div>
+              <div>3 piezas + papas + bebida 500 ml</div>
+            </div>
+            <div class="menu-item-price">Bs 25</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Combo Pareja</div>
+              <div>5 piezas + papas grandes + 2 bebidas</div>
+            </div>
+            <div class="menu-item-price">Bs 45</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Combo Familiar</div>
+              <div>8 piezas + papas familiares + 2 salsas</div>
+            </div>
+            <div class="menu-item-price">Bs 65</div>
+          </div>
+        </article>
+
+        <!-- Piezas sueltas -->
+        <article class="menu-card">
+          <h3>Piezas sueltas</h3>
+          <p class="menu-note">
+            Ideal para armar tu propio combo o agregar a tu pedido.
+          </p>
+          <div class="menu-item">
+            <div class="menu-item-name">1 pieza</div>
+            <div class="menu-item-price">Bs 7</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">3 piezas</div>
+            <div class="menu-item-price">Bs 20</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">10 piezas</div>
+            <div class="menu-item-price">Bs 60</div>
+          </div>
+        </article>
+
+        <!-- Acompañamientos -->
+        <article class="menu-card">
+          <h3>Acompañamientos</h3>
+          <p class="menu-note">
+            Para completar la mesa o compartir entre varios.
+          </p>
+          <div class="menu-item">
+            <div class="menu-item-name">Papas fritas individuales</div>
+            <div class="menu-item-price">Bs 8</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Papas familiares</div>
+            <div class="menu-item-price">Bs 15</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Arroz con queso</div>
+            <div class="menu-item-price">Bs 10</div>
+          </div>
+        </article>
+
+        <!-- Salsas -->
+        <article class="menu-card">
+          <h3>Salsas y extras</h3>
+          <div class="menu-item">
+            <div class="menu-item-name">Salsa GoodChicken</div>
+            <div class="menu-item-price">Bs 3</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Salsa picante</div>
+            <div class="menu-item-price">Bs 3</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Aderezo extra</div>
+            <div class="menu-item-price">Bs 2</div>
+          </div>
+        </article>
+
+        <!-- Bebidas -->
+        <article class="menu-card">
+          <h3>Bebidas</h3>
+          <div class="menu-item">
+            <div class="menu-item-name">Refrescos 500 ml</div>
+            <div class="menu-item-price">Bs 7</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Refrescos 2 L</div>
+            <div class="menu-item-price">Bs 15</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Jugos naturales</div>
+            <div class="menu-item-price">Bs 10</div>
+          </div>
+        </article>
+
+        <!-- Promos -->
+        <article class="menu-card" id="pedido">
+          <h3>Promos y delivery</h3>
+          <p class="menu-note">
+            Aquí puedes poner las promos del mes y cómo pedir por apps o
+            WhatsApp.
+          </p>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Promo lunes a jueves</div>
+              <div>Descuento en combos familiares después de las 18:00.</div>
+            </div>
+          </div>
+          <div class="menu-item" style="margin-top: 6px;">
+            <div>
+              <div class="menu-item-name">Pide por apps</div>
+              <div>Disponible en Yango, Turbo, PedidosYa*</div>
+            </div>
+          </div>
+          <p class="menu-note">
+            *Actualiza esta lista según las apps reales que uses y pon los
+            links directos.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SUCURSALES -->
+    <section id="sucursales">
+      <h2 class="section-title">Sucursales</h2>
+      <p class="section-subtitle">
+        Muestra aquí las direcciones de tus sucursales y horarios. Puedes
+        ajustar nombres de zonas y detalles según tu realidad.
+      </p>
+
+      <div class="branch-grid">
+        <article class="branch-card">
+          <span class="badge-mini">Casa matriz</span>
+          <h3>GoodChicken Centro</h3>
+          <p>Zona centro, Santa Cruz de la Sierra.</p>
+          <p class="branch-hours">Horario: 12:00 a 23:00</p>
+          <p class="branch-delivery">
+            Delivery:
+            <span>App</span>
+            <span>WhatsApp</span>
+          </p>
+        </article>
+
+        <article class="branch-card">
+          <span class="badge-mini">Delivery fuerte</span>
+          <h3>GoodChicken 3er anillo</h3>
+          <p>Ideal para pedidos a domicilio en la zona norte.</p>
+          <p class="branch-hours">Horario: 12:00 a 23:30</p>
+          <p class="branch-delivery">
+            <span>App</span>
+            <span>Pickup</span>
+          </p>
+        </article>
+
+        <article class="branch-card">
+          <span class="badge-mini">Próximamente</span>
+          <h3>Nueva sucursal</h3>
+          <p>Espacio reservado para tu próxima apertura.</p>
+          <p class="branch-hours">Horario: por definir</p>
+          <p class="branch-delivery">
+            <span>Muy pronto</span>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <h2 class="section-title">Contacto y pedidos</h2>
+      <p class="section-subtitle">
+        Facilita a tus clientes la forma de contactarte. Puedes conectar este
+        formulario a tu backend más adelante; por ahora es solo visual.
+      </p>
+
+      <div class="contact-grid">
+        <article class="contact-card">
+          <h3>Datos de contacto</h3>
+          <div class="contact-row">
+            <div class="contact-item">
+              <strong>WhatsApp pedidos:</strong> +591 XXX XXX XX  
+              <br /><span>Reemplaza por tu número real.</span>
+            </div>
+            <div class="contact-item">
+              <strong>Correo de contacto:</strong> info@goodchicken.com.bo
+            </div>
+            <div class="contact-item">
+              <strong>Horarios de atención:</strong>  
+              Lunes a domingo · 12:00 a 23:00
+            </div>
+          </div>
+
+          <div class="socials">
+            <div class="social-pill">Instagram: @goodchicken.bo</div>
+            <div class="social-pill">Facebook: GoodChicken</div>
+            <div class="social-pill">TikTok: @goodchicken.bo</div>
+          </div>
+
+          <p class="contact-note">
+            Actualiza nombres de usuario y agrega links directos a tus redes
+            sociales para que el cliente llegue en un solo clic.
+          </p>
+        </article>
+
+        <article class="contact-card">
+          <h3>Formulario rápido</h3>
+          <form class="contact-form" onsubmit="handleForm(event)">
+            <div>
+              <label for="nombre">Nombre</label>
+              <input id="nombre" type="text" placeholder="Tu nombre" />
+            </div>
+            <div>
+              <label for="telefono">Teléfono</label>
+              <input id="telefono" type="text" placeholder="Tu número" />
+            </div>
+            <div>
+              <label for="mensaje">Mensaje</label>
+              <textarea
+                id="mensaje"
+                placeholder="Ej: Consulta por pedido para X personas..."
+              ></textarea>
+            </div>
+            <button class="btn-primary" type="submit">
+              Enviar consulta (mockup)
+            </button>
+            <p class="contact-note">
+              Este formulario es solo visual por ahora. Más adelante se puede
+              conectar con tu sistema (WhatsApp bot, CRM, etc.).
+            </p>
+          </form>
+        </article>
+      </div>
+    </section>
 
     <!-- FOOTER -->
-    <footer class="footer">
-      <span>Mockup listo. Reemplaza textos y úsalo en tu dominio personalizado.</span>
+    <footer>
+      <span>© <span id="year"></span> GoodChicken. Todos los derechos reservados.</span>
       <span>
-        Edita este archivo en
-        <strong><code>public/index.html</code></strong> · backend en
-        <strong><code>server.js</code></strong>.
+        Sitio de demostración desarrollado para presentar el concepto del
+        restaurante. Puedes adaptar textos, precios y secciones según tu
+        realidad.
       </span>
     </footer>
-  </div>
+  </main>
 
   <script>
-    function scrollToDemo() {
-      const el = document.getElementById("demo");
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
 
-    function alertInfo() {
-      const host = window.location.host || "localhost:3000";
+    function handleForm(e) {
+      e.preventDefault();
       alert(
-        "Esta demo está corriendo en: " +
-          host +
-          "\n\nFrontend: HTML + CSS + JS\nBackend: Node.js + Express\n\nCambia textos e integra tus APIs reales cuando quieras."
+        "Este formulario es un mockup. Aquí podrías integrar tu backend, WhatsApp API o CRM para registrar los mensajes."
       );
     }
 
-    // Rellenar textos dinámicos
-    (function () {
-      const host = window.location.host || "localhost:3000";
-      const hostName = window.location.hostname || "localhost";
-
-      const hostText = document.getElementById("host-text");
-      const serverHost = document.getElementById("server-host");
-      const envLabel = document.getElementById("env-label");
-
-      if (hostText) hostText.textContent = host;
-      if (serverHost) serverHost.textContent = hostName;
-
-      if (envLabel) {
-        if (hostName === "localhost" || hostName === "127.0.0.1") {
-          envLabel.textContent = "Ambiente local de pruebas";
-        } else {
-          envLabel.textContent = "Dominio público conectado";
-        }
-      }
-    })();
+    document.getElementById("year").textContent =
+      new Date().getFullYear().toString();
   </script>
 </body>
 </html>
